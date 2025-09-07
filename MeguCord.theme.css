@@ -8,9 +8,6 @@
 
 @import url("https://clearvision.github.io/ClearVision-v7/main.css");
 @import url("https://clearvision.github.io/ClearVision-v7/betterdiscord.css");
-@import url(https://raw.githubusercontent.com/ilovemegumin/MeguCord/refs/heads/main/extra/betterdiscord.css);
-@import url(https://raw.githubusercontent.com/ilovemegumin/MeguCord/refs/heads/main/extra/vencord.css);
-@import url(https://raw.githubusercontent.com/ilovemegumin/MeguCord/refs/heads/main/extra/replugged.css);
 
 :root {
   --main-color: #d45df8;
@@ -70,7 +67,6 @@
   --interactive-muted: var(--muted-text);
 }
 
-/* Light theme variant (minimal vars for CV binding) */
 :is(.theme-light, .theme-dark .theme-light) {
   --background-shading: rgba(252, 252, 252, 0.30);
   --card-shading: rgba(252, 252, 252, 0.30);
