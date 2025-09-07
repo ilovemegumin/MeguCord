@@ -11,3 +11,8 @@ Githubを散策してたらMeguCordとか言う気になるものがあったか
 - 「テーマフォルダを開く」をクリック
 - ダウンロードした.theme.cssファイルを開いたフォルダに移動
 - Discordでテーマの右上にあるチェックボックスをクリックして有効化
+
+クレジット
+
+https://github.com/ClearVision/ClearVision-v7
+https://github.com/VormixSv/MeguCord-Discord-Theme
