@@ -1,0 +1,11 @@
+[class*="replugged" i] [class*="card" i],
+[class*="replugged" i] [class*="notice" i] {
+  background: var(--card-shading) !important;
+}
+
+[class*="replugged" i] input,
+[class*="replugged" i] textarea {
+  background: var(--input-shading) !important;
+  color: var(--normal-text) !important;
+}
+

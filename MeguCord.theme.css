@@ -1,0 +1,137 @@
+/**
+ * @name MeguCord
+ * @author ilovemegumin
+ * @description めぐみんのDiscordテーマ
+ * @version 3.0.0
+ * @source https://github.com/ilovemegumin/MeguCord
+ */
+
+@import url("https://clearvision.github.io/ClearVision-v7/main.css");
+@import url("https://clearvision.github.io/ClearVision-v7/betterdiscord.css");
+@import url(https://raw.githubusercontent.com/ilovemegumin/MeguCord/refs/heads/main/extra/betterdiscord.css);
+@import url(https://raw.githubusercontent.com/ilovemegumin/MeguCord/refs/heads/main/extra/vencord.css);
+@import url(https://raw.githubusercontent.com/ilovemegumin/MeguCord/refs/heads/main/extra/replugged.css);
+
+:root {
+  --main-color: #d45df8;
+  --hover-color: #b44cd1;
+  --success-color: #5cf7db;
+  --danger-color: #e24ba2;
+
+  --saturation-factor: 1;
+  --background-image: url(https://raw.githubusercontent.com/ilovemegumin/MeguCord/refs/heads/main/wallpaper.png);
+  --background-position: center;
+  --background-size: cover;
+  --background-attachment: fixed;
+  --background-shading-percent: 100%;
+  --background-filter: saturate(calc(var(--saturation-factor, 1) * 1));
+
+  --user-popout-image: var(--background-image);
+  --user-popout-position: var(--background-position);
+  --user-popout-size: var(--background-size);
+  --user-popout-attachment: var(--background-attachment);
+  --user-popout-filter: var(--background-filter);
+
+  --user-modal-image: var(--background-image);
+  --user-modal-position: var(--background-position);
+  --user-modal-size: var(--background-size);
+  --user-modal-attachment: var(--background-attachment);
+  --user-modal-filter: var(--background-filter);
+
+  --home-icon: url(https://clearvision.github.io/icons/discord.svg);
+  --home-size: cover;
+
+  --main-font: "gg sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --code-font: Consolas, "gg mono", "Liberation Mono", Menlo, Courier, monospace;
+
+  --channel-normal: var(--interactive-normal);
+  --channel-muted: var(--interactive-muted);
+  --channel-hover: var(--interactive-hover);
+  --channel-selected: var(--interactive-active);
+  --channel-selected-bg: var(--main-color);
+  --channel-unread: var(--main-color);
+  --channel-unread-hover: var(--hover-color);
+
+  --focus-color: var(--main-color);
+}
+
+:is(.theme-dark, .theme-light .theme-dark) {
+  --background-shading: rgba(0, 0, 0, 0.45);
+  --card-shading: rgba(0, 0, 0, 0.22);
+  --popout-shading: rgba(0, 0, 0, 0.62);
+  --modal-shading: rgba(0, 0, 0, 0.45);
+  --input-shading: rgba(255, 255, 255, 0.06);
+  --normal-text: #ffffff;
+  --muted-text: #b8a9c0;
+
+  --interactive-normal: var(--normal-text);
+  --interactive-hover: var(--normal-text);
+  --interactive-active: var(--normal-text);
+  --interactive-muted: var(--muted-text);
+}
+
+/* Light theme variant (minimal vars for CV binding) */
+:is(.theme-light, .theme-dark .theme-light) {
+  --background-shading: rgba(252, 252, 252, 0.30);
+  --card-shading: rgba(252, 252, 252, 0.30);
+  --popout-shading: rgba(252, 252, 252, 0.70);
+  --modal-shading: rgba(252, 252, 252, 0.50);
+  --input-shading: rgba(0, 0, 0, 0.30);
+  --normal-text: #36363c;
+  --muted-text: #75757e;
+
+  --interactive-normal: var(--normal-text);
+  --interactive-hover: var(--normal-text);
+  --interactive-active: var(--normal-text);
+  --interactive-muted: var(--muted-text);
+}
+
+html, body {
+  background: transparent !important;
+}
+
+[class*="userPopout"], [role="dialog"][class*="userProfile"] {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border-radius: 20px !important;
+}
+
+:focus-visible { outline-color: var(--focus-color) !important; }
+button, [role="button"] {
+  accent-color: var(--main-color);
+}
+
+:root {
+  --background-mentioned: rgba(212, 93, 248, 0.20);
+  --background-mentioned-hover: rgba(212, 93, 248, 0.10);
+  --background-modifier-selected: rgba(212, 93, 248, 0.30);
+  --background-modifier-hover: rgba(212, 93, 248, 0.18);
+  --scrollbar-thin-thumb: #d45df8;
+}
+
+[class*="tooltip"][class*="tooltip"] {
+  border-radius: 10px;
+  backdrop-filter: saturate(1.2);
+}
+
+[class*="upload"] [class*="modal"], [class*="upload"] [class*="inner"] {
+  background-image:
+    linear-gradient(45deg, rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    url(https://images2.alphacoders.com/793/thumb-1920-793427.png);
+  background-size: cover;
+  border-radius: 10px;
+}
+
+input[type="search"], [class*="searchBar"] {
+  background-color: rgba(0, 0, 0, 0.30) !important;
+}
+
+[class*="titleBar"], [class*="container"][class*="themed"] {
+  background-color: transparent !important;
+}
+
+a { color: var(--main-color); }
+
+.info__2debe::after { content: "MeguCord" " " "3.0.0" !important; }
+.visual-refresh:not(.platform-osx) .leading_c38106::before { content: "MeguCord" !important; }
+.visual-refresh:not(.platform-osx) .leading_c38106::after { content: "3.0.0" !important; }
