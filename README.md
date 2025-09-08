@@ -11,3 +11,8 @@ Githubで見つけた「MeguCord」というテーマが動作しなかったた
 - Open Themes Folderをクリック
 - ダウンロードしたMeguCord.theme.cssを開いたフォルダに移動させる
 - Themesでチェックボックスをクリックして有効化させる
+
+<h2>クレジット</h2>
+https://github.com/ClearVision/ClearVision-v7  修正のために使用
+
+https://github.com/VormixSv/MeguCord-Discord-Theme 元のテーマ
