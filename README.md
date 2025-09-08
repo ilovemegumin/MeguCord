@@ -7,9 +7,13 @@ Githubで見つけた「MeguCord」というテーマが動作しなかったた
 
 <h2>インストール方法</h2>
 - Discordの設定を開く
+- 
 - VencordかBetterDiscordのThemesを選択
+- 
 - Open Themes Folderをクリック
+- 
 - ダウンロードしたMeguCord.theme.cssを開いたフォルダに移動させる
+- 
 - Themesでチェックボックスをクリックして有効化させる
 
 <h2>クレジット</h2>
