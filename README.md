@@ -6,11 +6,11 @@ Githubで見つけた「MeguCord」というテーマが動作しなかったた
 このテーマを使うには **BetterDiscord** または **VenCord** が必要です。
 
 <h2>インストール方法</h2>
-- Discordの設定を開く
-- VencordかBetterDiscordのThemesを選択
-- Open Themes Folderをクリック
-- ダウンロードしたMeguCord.theme.cssを開いたフォルダに移動させる
-- Themesでチェックボックスをクリックして有効化させる
+- Discordの設定を開く 
+- VencordかBetterDiscordのThemesを選択 
+- Open Themes Folderをクリック 
+- ダウンロードしたMeguCord.theme.cssを開いたフォルダに移動させる 
+- Themesでチェックボックスをクリックして有効化させる 
 
 <h2>クレジット</h2>
 https://github.com/ClearVision/ClearVision-v7  修正のために使用
