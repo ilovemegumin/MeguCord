@@ -1,11 +1,3 @@
-/**
- * @name MeguCord
- * @author ilovemegumin
- * @description めぐみんのDiscordテーマ
- * @version 3.0.0
- * @source https://github.com/ilovemegumin/MeguCord
- */
-
 @import url("https://clearvision.github.io/ClearVision-v7/main.css");
 @import url("https://clearvision.github.io/ClearVision-v7/betterdiscord.css");
 
@@ -14,43 +6,27 @@
   --hover-color: #b44cd1;
   --success-color: #5cf7db;
   --danger-color: #e24ba2;
-
   --saturation-factor: 1;
-  --background-image: url(https://raw.githubusercontent.com/ilovemegumin/MeguCord/refs/heads/main/wallpaper.png);
+  --megu-rotate-duration: 60s;
+  --megu-wallpaper-1: url(https://raw.githubusercontent.com/ilovemegumin/MeguCord/refs/heads/main/wallpaper.png);
+  --megu-wallpaper-2: url(https://raw.githubusercontent.com/ilovemegumin/MeguCord/refs/heads/main/wallpaper2.png);
+  --megu-wallpaper-3: url(https://raw.githubusercontent.com/ilovemegumin/MeguCord/refs/heads/main/wallpaper3.png);
+  --megu-wallpaper-4: url(https://raw.githubusercontent.com/ilovemegumin/MeguCord/refs/heads/main/wallpaper4.png);
+  --megu-wallpaper: var(--megu-wallpaper-1);
+  --background-image: var(--megu-wallpaper);
   --background-position: center;
   --background-size: cover;
   --background-attachment: fixed;
-  --background-shading-percent: 100%;
   --background-filter: saturate(calc(var(--saturation-factor, 1) * 1));
-
-  --user-popout-image: var(--background-image);
-  --user-popout-position: var(--background-position);
-  --user-popout-size: var(--background-size);
-  --user-popout-attachment: var(--background-attachment);
-  --user-popout-filter: var(--background-filter);
-
-  --user-modal-image: var(--background-image);
-  --user-modal-position: var(--background-position);
-  --user-modal-size: var(--background-size);
-  --user-modal-attachment: var(--background-attachment);
-  --user-modal-filter: var(--background-filter);
-
-  --home-icon: url(https://clearvision.github.io/icons/discord.svg);
-  --home-size: cover;
-
-  --main-font: "gg sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --code-font: Consolas, "gg mono", "Liberation Mono", Menlo, Courier, monospace;
-
-  --channel-normal: var(--interactive-normal);
-  --channel-muted: var(--interactive-muted);
-  --channel-hover: var(--interactive-hover);
-  --channel-selected: var(--interactive-active);
-  --channel-selected-bg: var(--main-color);
-  --channel-unread: var(--main-color);
-  --channel-unread-hover: var(--hover-color);
-
-  --focus-color: var(--main-color);
+  --megu-loading-enabled: 0;
+  --megu-loading-percent: "0";
+  --megu-loading-angle: 0turn;
 }
+
+html[data-megu-wallpaper="1"] { --megu-wallpaper: var(--megu-wallpaper-1); --background-image: var(--megu-wallpaper); }
+html[data-megu-wallpaper="2"] { --megu-wallpaper: var(--megu-wallpaper-2); --background-image: var(--megu-wallpaper); }
+html[data-megu-wallpaper="3"] { --megu-wallpaper: var(--megu-wallpaper-3); --background-image: var(--megu-wallpaper); }
+html[data-megu-wallpaper="4"] { --megu-wallpaper: var(--megu-wallpaper-4); --background-image: var(--megu-wallpaper); }
 
 :is(.theme-dark, .theme-light .theme-dark) {
   --background-shading: rgba(0, 0, 0, 0.45);
@@ -60,7 +36,6 @@
   --input-shading: rgba(255, 255, 255, 0.06);
   --normal-text: #ffffff;
   --muted-text: #b8a9c0;
-
   --interactive-normal: var(--normal-text);
   --interactive-hover: var(--normal-text);
   --interactive-active: var(--normal-text);
@@ -75,59 +50,166 @@
   --input-shading: rgba(0, 0, 0, 0.30);
   --normal-text: #36363c;
   --muted-text: #75757e;
-
   --interactive-normal: var(--normal-text);
   --interactive-hover: var(--normal-text);
   --interactive-active: var(--normal-text);
   --interactive-muted: var(--muted-text);
 }
 
-html, body {
+html, body { background: transparent !important; }
+
+#app-mount::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-image: linear-gradient(0deg, var(--background-shading), var(--background-shading));
+  background-position: var(--background-position);
+  background-size: var(--background-size);
+  background-attachment: var(--background-attachment);
+  filter: var(--background-filter);
+}
+
+#app-mount,
+[class*="app"],
+[class*="layers"],
+[class*="layer"],
+[class*="container"],
+[class*="bg"],
+[class*="chat"],
+[class*="content"],
+[class*="scroller"],
+[role="main"] {
   background: transparent !important;
 }
 
-[class*="userPopout"], [role="dialog"][class*="userProfile"] {
+[class*="messages"],
+[class*="chatContent"],
+[class*="chatScroller"],
+[class*="contentRegion"] {
+  background: transparent !important;
+}
+
+[class*="userPopout"],
+[role="dialog"][class*="userProfile"] {
   background-color: transparent !important;
   box-shadow: none !important;
   border-radius: 20px !important;
 }
 
-:focus-visible { outline-color: var(--focus-color) !important; }
-button, [role="button"] {
-  accent-color: var(--main-color);
-}
-
-:root {
-  --background-mentioned: rgba(212, 93, 248, 0.20);
-  --background-mentioned-hover: rgba(212, 93, 248, 0.10);
-  --background-modifier-selected: rgba(212, 93, 248, 0.30);
-  --background-modifier-hover: rgba(212, 93, 248, 0.18);
-  --scrollbar-thin-thumb: #d45df8;
-}
-
-[class*="tooltip"][class*="tooltip"] {
-  border-radius: 10px;
-  backdrop-filter: saturate(1.2);
-}
-
-[class*="upload"] [class*="modal"], [class*="upload"] [class*="inner"] {
-  background-image:
-    linear-gradient(45deg, rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-    url(https://images2.alphacoders.com/793/thumb-1920-793427.png);
-  background-size: cover;
-  border-radius: 10px;
-}
-
-input[type="search"], [class*="searchBar"] {
-  background-color: rgba(0, 0, 0, 0.30) !important;
-}
-
-[class*="titleBar"], [class*="container"][class*="themed"] {
-  background-color: transparent !important;
-}
-
 a { color: var(--main-color); }
+:focus-visible { outline-color: var(--main-color) !important; }
+button, [role="button"] { accent-color: var(--main-color); }
 
-.info__2debe::after { content: "MeguCord" " " "3.0.0" !important; }
+@media (max-width: 1200px) {
+  [class*="sidebar"],
+  [class*="chat"],
+  [class*="membersWrap"],
+  [class*="panels"],
+  [class*="container"] [class*="content"] {
+    background: linear-gradient(0deg, var(--card-shading), var(--card-shading)) !important;
+    border-radius: 10px;
+  }
+  [class*="rtc"],
+  [class*="voice"],
+  [class*="call"],
+  [class*="video"],
+  [class*="stream"] {
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(0deg, var(--popout-shading), var(--popout-shading)) !important;
+    border-radius: 12px;
+  }
+  [class*="chat"] { position: relative; z-index: 0; }
+}
+
+@media (max-width: 900px) { #app-mount::before { background-attachment: scroll; } }
+
+@keyframes meguCycle {
+  0% { opacity: 0 }
+  5% { opacity: 1 }
+  20% { opacity: 1 }
+  25% { opacity: 0 }
+  100% { opacity: 0 }
+}
+
+html::before,
+body::before,
+body::after,
+#app-mount::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  pointer-events: none;
+  background-position: var(--background-position);
+  background-size: var(--background-size);
+  background-attachment: var(--background-attachment);
+  filter: var(--background-filter);
+  opacity: 0;
+  animation: meguCycle var(--megu-rotate-duration, 48s) linear infinite both;
+}
+
+html::before { background-image: var(--megu-wallpaper-1); animation-delay: calc(var(--megu-rotate-duration, 48s) * -0); }
+body::before { background-image: var(--megu-wallpaper-2); animation-delay: calc(var(--megu-rotate-duration, 48s) * -0.25); }
+body::after  { background-image: var(--megu-wallpaper-3); animation-delay: calc(var(--megu-rotate-duration, 48s) * -0.5); }
+#app-mount::after { background-image: var(--megu-wallpaper-4); animation-delay: calc(var(--megu-rotate-duration, 48s) * -0.75); }
+
+@media (prefers-reduced-motion: reduce) {
+  html::before, body::before, body::after, #app-mount::after { animation: none; opacity: 1; }
+  body::before, body::after, #app-mount::after { opacity: 0; }
+}
+
+html::after {
+  content: "Loading… " var(--megu-loading-percent) "%";
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: clamp(18px, 3.2vmin, 28px);
+  letter-spacing: .02em;
+  color: var(--normal-text);
+  text-shadow: 0 0 12px rgba(212,93,248,.45);
+  background:
+    radial-gradient(closest-side, transparent calc(50% - 38px), rgba(0,0,0,.66) calc(50% - 38px), rgba(0,0,0,.66) 50%, transparent 50%) center/150px 150px no-repeat,
+    conic-gradient(rgba(212,93,248,.95) var(--megu-loading-angle), rgba(255,255,255,.16) 0) center/150px 150px no-repeat,
+    linear-gradient(0deg, var(--modal-shading), var(--modal-shading));
+  opacity: var(--megu-loading-enabled);
+  pointer-events: none;
+  transition: opacity .25s ease;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  button, [role="button"] { transition: transform .12s ease, text-shadow .2s ease, filter .2s ease; }
+  button:hover, [role="button"]:hover { text-shadow: 0 0 6px rgba(212,93,248,.35); filter: saturate(1.06); }
+  [class*="message"] { transition: transform .15s ease, background-color .15s ease; }
+  [class*="message"]:hover { transform: translateY(-1px); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [class*="mentioned"] { position: relative; overflow: hidden; }
+  [class*="mentioned"]::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(212,93,248,.22), transparent);
+    transform: translateX(-120%);
+    opacity: 0;
+    pointer-events: none;
+    animation: meguShimmer 2.2s ease-out 1 both;
+  }
+}
+
+input:focus, textarea:focus, [contenteditable="true"]:focus { box-shadow: none !important; outline: none !important; }
+
+@keyframes meguShimmer {
+  0% { transform: translateX(-120%); opacity: 0; }
+  30% { opacity: .85; }
+  100% { transform: translateX(120%); opacity: 0; }
+}
+
+.info__2debe::after { content: "MeguCord" "3.0.1" !important; }
 .visual-refresh:not(.platform-osx) .leading_c38106::before { content: "MeguCord" !important; }
-.visual-refresh:not(.platform-osx) .leading_c38106::after { content: "3.0.0" !important; }
+.visual-refresh:not(.platform-osx) .leading_c38106::after { content: "3.0.1" !important; }
