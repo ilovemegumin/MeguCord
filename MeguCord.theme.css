@@ -2,7 +2,7 @@
  * @name MeguCord
  * @author ilovemegumin
  * @description めぐみんのDiscordテーマ
- * @version 3.0.2
+ * @version 3.0.3
  * @source https://github.com/ilovemegumin/MeguCord
  */
 @import url("https://clearvision.github.io/ClearVision-v7/main.css");
@@ -23,11 +23,8 @@
   --background-image: var(--megu-wallpaper);
   --background-position: center;
   --background-size: cover;
-  --background-attachment: fixed;
+  --background-attachment: scroll;
   --background-filter: saturate(calc(var(--saturation-factor, 1) * 1));
-  --megu-loading-enabled: 0;
-  --megu-loading-percent: "0";
-  --megu-loading-angle: 0turn;
 }
 
 html[data-megu-wallpaper="1"] { --megu-wallpaper: var(--megu-wallpaper-1); --background-image: var(--megu-wallpaper); }
@@ -133,6 +130,10 @@ button, [role="button"] { accent-color: var(--main-color); }
 
 @media (max-width: 900px) { #app-mount::before { background-attachment: scroll; } }
 
+@media (min-width: 1280px) and (min-height: 800px) {
+  :root { --background-attachment: fixed; }
+}
+
 @keyframes meguCycle {
   0% { opacity: 0 }
   5% { opacity: 1 }
@@ -168,42 +169,20 @@ body::after  { background-image: var(--megu-wallpaper-3); animation-delay: calc(
   body::before, body::after, #app-mount::after { opacity: 0; }
 }
 
-html::after {
-  content: "Loading… " var(--megu-loading-percent) "%";
-  position: fixed;
-  inset: 0;
-  z-index: 10000;
-  display: grid;
-  place-items: center;
-  font-weight: 700;
-  font-size: clamp(18px, 3.2vmin, 28px);
-  letter-spacing: .02em;
-  color: var(--normal-text);
-  text-shadow: 0 0 12px rgba(212,93,248,.45);
-  background:
-    radial-gradient(closest-side, transparent calc(50% - 38px), rgba(0,0,0,.66) calc(50% - 38px), rgba(0,0,0,.66) 50%, transparent 50%) center/150px 150px no-repeat,
-    conic-gradient(rgba(212,93,248,.95) var(--megu-loading-angle), rgba(255,255,255,.16) 0) center/150px 150px no-repeat,
-    linear-gradient(0deg, var(--modal-shading), var(--modal-shading));
-  opacity: var(--megu-loading-enabled);
-  pointer-events: none;
-  transition: opacity .25s ease;
-}
-
 @media (prefers-reduced-motion: no-preference) {
   button, [role="button"] { transition: transform .12s ease, text-shadow .2s ease, filter .2s ease; }
   button:hover, [role="button"]:hover { text-shadow: 0 0 6px rgba(212,93,248,.35); filter: saturate(1.06); }
   [class*="message"] { transition: transform .15s ease, background-color .15s ease; }
   [class*="message"]:hover { transform: translateY(-1px); }
-}
 
-@media (prefers-reduced-motion: no-preference) {
   [class*="mentioned"] { position: relative; overflow: visible; }
   [class*="mentioned"]::after {
     content: "";
-    position: absolute; inset: 0;
-      background-size: 200% 100%;
-      background: linear-gradient(90deg, transparent, rgba(212, 93, 248, .22), transparent) no-repeat -120% 0;
-      opacity: 0;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(212,93,248,.22), transparent) no-repeat -120% 0;
+    background-size: 200% 100%;
+    opacity: 0;
     pointer-events: none;
     animation: meguShimmer 2.2s ease-out 1 both;
   }
@@ -217,6 +196,6 @@ input:focus, textarea:focus, [contenteditable="true"]:focus { box-shadow: none !
   100% { background-position: 120% 0; opacity: 0; }
 }
 
-.info__2debe::after { content: "MeguCord" "3.0.2" !important; }
+.info__2debe::after { content: "MeguCord" "3.0.3" !important; }
 .visual-refresh:not(.platform-osx) .leading_c38106::before { content: "MeguCord" !important; }
-.visual-refresh:not(.platform-osx) .leading_c38106::after { content: "3.0.2" !important; }
+.visual-refresh:not(.platform-osx) .leading_c38106::after { content: "3.0.3" !important; }
