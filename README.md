@@ -1,7 +1,7 @@
 # MeguCord-Discord-Theme
 ![MeguCord (Discord theme by Vormix_Sv)](https://github.com/VormixSv/MeguCord-Discord-Theme/assets/101508835/64207af4-e8c9-4373-9459-3fa8860e42d9)
 
-##前提条件
+## 前提条件
 このテーマを使うには **BetterDiscord** または **VenCord** が必要です。
 
 ## インストール方法
