@@ -2,7 +2,7 @@
  * @name MeguCord
  * @author ilovemegumin
  * @description めぐみんのDiscordテーマ
- * @version 3.0.3
+ * @version 3.0.4
  * @source https://github.com/ilovemegumin/MeguCord
  */
 @import url("https://clearvision.github.io/ClearVision-v7/main.css");
@@ -196,6 +196,29 @@ input:focus, textarea:focus, [contenteditable="true"]:focus { box-shadow: none !
   100% { background-position: 120% 0; opacity: 0; }
 }
 
-.info__2debe::after { content: "MeguCord" "3.0.3" !important; }
+.info__2debe::after { content: "MeguCord" "3.0.4" !important; }
 .visual-refresh:not(.platform-osx) .leading_c38106::before { content: "MeguCord" !important; }
-.visual-refresh:not(.platform-osx) .leading_c38106::after { content: "3.0.3" !important; }
+.visual-refresh:not(.platform-osx) .leading_c38106::after { content: "3.0.4" !important; }
+
+@media (max-width: 1200px) {
+  [class*="sidebar"],
+  [class*="chat"],
+  [class*="membersWrap"],
+  [class*="panels"],
+  [class*="container"] [class*="content"],
+  [class*="rtc"],
+  [class*="voice"],
+  [class*="call"],
+  [class*="video"],
+  [class*="stream"] {
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  :root {
+    --card-shading: rgba(0,0,0,0.00);
+    --popout-shading: rgba(0,0,0,0.00);
+  }
+}
